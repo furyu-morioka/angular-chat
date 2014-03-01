@@ -1,0 +1,24 @@
+<div ng-controller="ChatCtrl" class="ng-scope">
+  <div id="header" class="header"> 23     Your Name: <input type="text" name="user" id="userField" value="John Doe" ng-model="user" class="ng-pristine ng-valid">
+    <select ng-model="currentRoom" ng-change="setCurrentRoom(currentRoom)" ng-options="r.name for r in rooms" id="roomSelect" class="ng-pristine ng-valid"><option value="0" selected="selected">Room 1</option><option value="1">Room 2</option>< option value="2">Room 3</option><option value="3">Room 4</option><option value="4">Room 5</option></select>
+  </div>
+
+  <div id="chat">
+    <ul class="speaks">
+      <li class="speak" ng-repeat="msg in msgs | limitTo:-4" ng-class="others">
+        <a href="#/phones/{{phone.id}}" class="thumb"><img src="images/yeoman.png"></a>
+        {{msg.time}}<br/>
+        <strong>{{msg.user}} says: </strong>{{msg.text}}<br/>
+      </li>
+    </ul>
+  </div>
+
+  <div id="footer" class="footer">
+    <form ng-submit="submitMsg()" class="ng-pristine ng-valid">
+      <input type="text" name="chat" id="textField" ng-model="inputText" placeholder="Say something" class="ng-pristine n    g-valid input-block-level">
+      <input type="button" class="btn btn-primary" id="saySomething" value="Submit" ng-click="submitMsg()">
+    </form>
+  </div>
+ </div>
+
+
